@@ -20,11 +20,11 @@ USE `bd_estoc`;
 -- Estructura de tabla para la tabla `tbl_lloc`
 --
 CREATE TABLE IF NOT EXISTS `tbl_persona` (
-  `persona_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `pers_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pers_nom` varchar(20) NOT NULL,
+  `pers_pass` varchar(20) NOT NULL,
  
-  PRIMARY KEY (`persona_id`)
+  PRIMARY KEY (`pers_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
