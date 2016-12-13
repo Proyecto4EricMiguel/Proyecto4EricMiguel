@@ -15,6 +15,18 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 CREATE DATABASE IF NOT EXISTS `bd_estoc` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `bd_estoc`;
 
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `tbl_lloc`
+--
+CREATE TABLE IF NOT EXISTS `tbl_persona` (
+  `persona_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+ 
+  PRIMARY KEY (`persona_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 -- --------------------------------------------------------
 --
@@ -34,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `tbl_lloc` (
 --
 CREATE TABLE IF NOT EXISTS `tbl_estoc` (
   `estoc_id` int(11) NOT NULL AUTO_INCREMENT,
-  `estoc_q_max` int(5) NOT NULL,
+  `estoc_q_actual` int(5) NOT NULL,
   `estoc_q_min` int(5) NOT NULL,
   `prod_id` int(11)  NULL,
   `lloc_id` int(11)  NULL,
