@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 9199.joan23
+ * @author dawj23
  */
 public class Conexion {
 
     // Datos de la conexion
-    public String bd = "bd_estoc";
+    public String bd = "bd_estoc2";
     public String ip = "localhost";
     public String puerto = "3306";
     public String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd;
@@ -44,7 +44,7 @@ public class Conexion {
         } finally {
             return conexion;
         }
-
+     
     }
 
     /**

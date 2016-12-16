@@ -7,10 +7,9 @@ package modelo;
 
 /**
  *
- * @author 9199.joan23
+ * @author dawj23
  */
 public class Persona {
-    
     
     private int pers_id;
     private String pers_nom;
@@ -18,13 +17,18 @@ public class Persona {
 
     public Persona() {
     }
-
+// aañadimos constructores 
     public Persona(int pers_id, String pers_nom, String pers_pass) {
         this.pers_id = pers_id;
         this.pers_nom = pers_nom;
         this.pers_pass = pers_pass;
     }
 
+    public Persona(String pers_nom, String pers_pass) {
+        this.pers_nom = pers_nom;
+        this.pers_pass = pers_pass;
+    }
+// añadimos getters
     public int getPers_id() {
         return pers_id;
     }
@@ -36,7 +40,7 @@ public class Persona {
     public String getPers_pass() {
         return pers_pass;
     }
-
+// añadimos setters
     public void setPers_id(int pers_id) {
         this.pers_id = pers_id;
     }

@@ -11,9 +11,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
 --
 -- Base de datos: `bd_estoc`
---
-CREATE DATABASE IF NOT EXISTS `bd_estoc` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `bd_estoc`;
+-- CREATE DATABASE IF NOT EXISTS `bd_estoc` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+-- USE `bd_estoc`;
 
 -- --------------------------------------------------------
 --
@@ -48,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `tbl_estoc` (
   `estoc_id` int(11) NOT NULL AUTO_INCREMENT,
   `estoc_q_actual` int(5) NOT NULL,
   `estoc_q_min` int(5) NOT NULL,
+  `estoc_q_max` int(5) NOT NULL,
   `prod_id` int(11)  NULL,
   `lloc_id` int(11)  NULL,
   PRIMARY KEY (`estoc_id`)
@@ -79,18 +79,7 @@ CREATE TABLE IF NOT EXISTS `tbl_categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
--- --------------------------------------------------------
---
--- Estructura de tabla para la tabla `tbl_serie`
---
-CREATE TABLE IF NOT EXISTS `tbl_serie` (
-  `serie_id` int(11) NOT NULL AUTO_INCREMENT,
-  `serie_nom` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `categoria_id` int(11) NULL,
-  PRIMARY KEY (`serie_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `tbl_producte`
 --
@@ -98,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `tbl_producte` (
   `prod_id` int(11) NOT NULL AUTO_INCREMENT,
   `prod_nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `prod_foto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `serie_id` int(11) NULL,
+  `categoria_id` int(11) NULL,
   PRIMARY KEY (`prod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -134,13 +123,14 @@ CREATE TABLE IF NOT EXISTS `tbl_detall_com` (
 -- ---------------------------------------------------
 
 -- `tbl_serie` `tbl_categoria`:
-ALTER TABLE `tbl_serie` ADD CONSTRAINT `FK_serie_categoria` FOREIGN KEY (categoria_id)
+ALTER TABLE `tbl_producte` ADD CONSTRAINT `FK_producte_categoria` FOREIGN KEY (categoria_id)
 REFERENCES `tbl_categoria`(categoria_id);
+
 -- ---------------------------------------------------
 
 -- `tbl_producte`  `tbl_serie`:
-ALTER TABLE `tbl_producte` ADD CONSTRAINT `FK_prod_serie` FOREIGN KEY (serie_id)
-REFERENCES `tbl_serie`(serie_id);
+-- ALTER TABLE `tbl_producte` ADD CONSTRAINT `FK_prod_serie` FOREIGN KEY (serie_id)
+-- REFERENCES `tbl_serie`(serie_id);
 -- ---------------------------------------------------
 
 -- `tbl_detall_comanda` `tbl_producte`:
@@ -168,4 +158,5 @@ ALTER TABLE `tbl_estoc` ADD CONSTRAINT `FK_estoc_lloc` FOREIGN KEY (lloc_id)
 REFERENCES `tbl_lloc`(lloc_id);
 -- ---------------------------------------------------
 
+ALTER TABLE `tbl_producte` ADD `prod_preu` DECIMAL(8) NOT NULL AFTER `prod_nom`;
 

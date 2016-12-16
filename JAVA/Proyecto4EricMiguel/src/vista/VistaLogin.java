@@ -5,17 +5,22 @@
  */
 package vista;
 
+import controller.Controller;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author 9199.joan23
+ * @author Usuario
  */
 public class VistaLogin extends javax.swing.JFrame {
 
+        Controller login = new Controller();
     /**
-     * Creates new form VistaLogin
+     * Creates new form vistaLogin
      */
     public VistaLogin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,77 +32,118 @@ public class VistaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jtNombreUsu = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btentrar = new javax.swing.JButton();
+        jtContraUsu = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jtNombre = new javax.swing.JTextField();
-        jtPass = new javax.swing.JTextField();
-        jtConectar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 255));
 
-        jLabel1.setText("Usuario/Nombre:");
+        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
-        jLabel2.setText("Constraseña:");
+        jtNombreUsu.setBackground(new java.awt.Color(255, 255, 0));
+        jtNombreUsu.setForeground(new java.awt.Color(51, 51, 255));
 
-        jtNombre.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setText("Usuario");
+
+        btentrar.setBackground(new java.awt.Color(255, 255, 0));
+        btentrar.setForeground(new java.awt.Color(51, 51, 255));
+        btentrar.setText("Entrar");
+        btentrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNombreActionPerformed(evt);
+                btentrarActionPerformed(evt);
             }
         });
 
-        jtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtPassActionPerformed(evt);
-            }
-        });
+        jtContraUsu.setBackground(new java.awt.Color(255, 255, 0));
+        jtContraUsu.setForeground(new java.awt.Color(51, 51, 255));
 
-        jtConectar.setText("Conectar");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel2.setText("Password");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(287, 287, 287)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btentrar)
+                        .addGap(37, 37, 37))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtNombreUsu)
+                            .addComponent(jtContraUsu, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(306, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(246, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtNombreUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jtContraUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btentrar)
+                .addGap(72, 72, 72))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtNombre)
-                    .addComponent(jtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(167, Short.MAX_VALUE)
-                .addComponent(jtConectar)
-                .addGap(156, 156, 156))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jtConectar)
-                .addContainerGap(135, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPassActionPerformed
+    private void btentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btentrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtPassActionPerformed
+        String usuario = this.jtNombreUsu.getText();        
+        char clave[]=this.jtContraUsu.getPassword();
 
-    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNombreActionPerformed
+        String clavedef = new String(clave);
+        
+      
+        
+        if(login.login(usuario, clavedef)==1){
+            this.dispose();
+           
+            //JOptionPane.showMessageDialog(null, "SI");
+            
+            VistaInicio iniciar = new VistaInicio();
+
+            iniciar.setVisible(true);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos :(");
+        
+        }
+        if(login.login(usuario, clavedef)==0){
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos :(");
+
+        }
+                
+    }//GEN-LAST:event_btentrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,6 +171,9 @@ public class VistaLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VistaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -135,10 +184,11 @@ public class VistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btentrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton jtConectar;
-    private javax.swing.JTextField jtNombre;
-    private javax.swing.JTextField jtPass;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jtContraUsu;
+    private javax.swing.JTextField jtNombreUsu;
     // End of variables declaration//GEN-END:variables
 }
