@@ -18,6 +18,17 @@ public class Stock {
     public Stock() {
     }
 
+    public Stock(int idstock) {
+        this.idstock = idstock;
+    }
+
+    public Stock(int idstock, int stock_actual, int stock_max, int stock_min) {
+        this.idstock = idstock;
+        this.stock_actual = stock_actual;
+        this.stock_max = stock_max;
+        this.stock_min = stock_min;
+    }
+
     public Stock(int stock_actual, int stock_max, int stock_min) {
         this.stock_actual = stock_actual;
         this.stock_max = stock_max;

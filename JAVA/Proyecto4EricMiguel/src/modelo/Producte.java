@@ -14,13 +14,17 @@ public class Producte {
       private int prod_id;
     private String prod_nom;
     private double prod_preu;
-     private int prod_foto;
+     private String prod_foto;
      private int categoria_id;
 
     public Producte() {
     }
 
-    public Producte(int prod_id, String prod_nombre, double prod_preu, int prod_foto, int categoria_id) {
+    public Producte(int prod_id) {
+        this.prod_id = prod_id;
+    }
+
+    public Producte(int prod_id, String prod_nombre, double prod_preu, String prod_foto, int categoria_id) {
         this.prod_id = prod_id;
         this.prod_nom = prod_nom;
         this.prod_preu = prod_preu;
@@ -46,7 +50,7 @@ public class Producte {
         return prod_preu;
     }
 
-    public int getProd_foto() {
+    public String getProd_foto() {
         return prod_foto;
     }
 
@@ -66,7 +70,7 @@ public class Producte {
         this.prod_preu = prod_preu;
     }
 
-    public void setProd_foto(int prod_foto) {
+    public void setProd_foto(String prod_foto) {
         this.prod_foto = prod_foto;
     }
 

@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
 
     // Datos de la conexion
-    public String bd = "bd_estoc2";
+    public String bd = "bd_estoc";
     public String ip = "localhost";
     public String puerto = "3306";
     public String url = "jdbc:mysql://" + ip + ":" + puerto + "/" + bd;

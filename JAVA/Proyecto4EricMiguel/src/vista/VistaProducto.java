@@ -22,7 +22,7 @@ import modelo.Stock;
  */
 public class VistaProducto extends javax.swing.JInternalFrame {
 
-    Controller producte = new Controller();
+    Controller producto = new Controller();
 
     /**
      * Creates new form VistaProducto
@@ -31,12 +31,14 @@ public class VistaProducto extends javax.swing.JInternalFrame {
 
         initComponents();
         
-        this.jTablaProducto.setModel(producte.mostrarProducto());
-        producte.Caja(jcCategoriaCaja);
+        this.jTablaProducto.setModel(producto.mostrarProducto());
+        producto.Caja(jcCategoriaCaja);
         
         // Cuando inicie  el programa los botones: eliminar, guardar estaran desactivadas
         this.jbEliminar.setEnabled(false);
         this.jbGuardar.setEnabled(false);
+        
+        
 
     }
     /**
@@ -70,13 +72,14 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         jtStockIdPro = new javax.swing.JTextField();
         jtCategoria = new javax.swing.JTextField();
         jbCambiar = new javax.swing.JButton();
+        StokId = new javax.swing.JLabel();
+        jtStockId = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaProducto = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -161,7 +164,6 @@ public class VistaProducto extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Categoria");
 
-        jtCategoriaId.setEditable(false);
         jtCategoriaId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtCategoriaIdActionPerformed(evt);
@@ -170,7 +172,22 @@ public class VistaProducto extends javax.swing.JInternalFrame {
 
         jtStockIdPro.setEditable(false);
 
+        jtCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCategoriaActionPerformed(evt);
+            }
+        });
+
         jbCambiar.setText("Cambiar");
+
+        StokId.setText("Stocck Id");
+
+        jtStockId.setEditable(false);
+        jtStockId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtStockIdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -196,14 +213,20 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                         .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(39, 39, 39)
-                                .addComponent(jtStockMin))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
-                                .addComponent(jtStockMax)))
+                                .addComponent(jtStockMax))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(StokId))
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jtStockId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jtStockMin))))
                         .addGap(123, 123, 123))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -256,7 +279,11 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jtStockMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtStockId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StokId))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcCategoriaCaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
@@ -270,7 +297,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                     .addComponent(jbAñadir)
                     .addComponent(jbEliminar)
                     .addComponent(jbGuardar))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
@@ -296,9 +323,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
 
         jLabel8.setText("buscar");
 
-        jButton1.setText("buscar");
-
-        jButton2.setText("eliminar");
+        jbBuscar.setText("buscar");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -327,10 +352,8 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(379, Short.MAX_VALUE))
+                .addComponent(jbBuscar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,11 +366,10 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jbBuscar))
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -413,6 +435,15 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         }
 
         //
+       
+
+       //producte.addProducteStock(p, s);
+       
+        // Activamos el boton añadir, eliminar
+        this.jbAñadir.setEnabled(true);
+        this.jbEliminar.setEnabled(false);
+        
+        if (this.jbGuardar.getText()=="Guardar"){
         String nombre = this.jtNombrePro.getText();
         double precio = Double.parseDouble(this.jtPrecioPro.getText());
         int stock = Integer.parseInt(this.jtStockActual.getText());
@@ -423,12 +454,26 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         Stock s = new Stock(stock, stockM, stockm);
 
         Producte p = new Producte(nombre, precio, idcategoria);
+        producto.añadirProductoEstoc(p, s);
+        }
+        if (this.jbGuardar.getText()=="Modificar"){
+            
+        String nombre = this.jtNombrePro.getText();
+        double precio = Double.parseDouble(this.jtPrecioPro.getText());
+        int stock = Integer.parseInt(this.jtStockActual.getText());
+        int stockM = Integer.parseInt(this.jtStockMax.getText());
+        int stockm = Integer.parseInt(this.jtStockMin.getText());
+        int idcategoria = Integer.parseInt(this.jtCategoriaId.getText());
 
-       //producte.addProducteStock(p, s);
+        Stock s = new Stock(stock, stockM, stockm);
+
+        Producte p = new Producte(nombre, precio, idcategoria);
+        producto.modifcarProductoEstoc(p, s);
+        }
        
-        // Activamos el boton añadir, eliminar
         this.jbAñadir.setEnabled(true);
-         this.jbEliminar.setEnabled(false);
+         this.jbEliminar.setEnabled(true);
+         this.jbGuardar.setEnabled(false);
      
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -449,6 +494,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         this.jtStockMax.setText("");
         this.jtStockMin.setText("");
         this.jtCategoria.setText("");
+        this.jtStockId.setText("");
         
         // indicamos si el boton guardar se llama modificar lo cambiamos a guardar
         
@@ -487,7 +533,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         jtStockMin.setText(String.valueOf(jTablaProducto.getValueAt(fila, 6)));
         jtStockActual.setText(String.valueOf(jTablaProducto.getValueAt(fila, 7)));
         jtCategoria.setText(String.valueOf(jTablaProducto.getValueAt(fila, 8)));
-       
+        jtStockId.setText(String.valueOf(jTablaProducto.getValueAt(fila, 9)));
         
 
         //Desahibilitar los botones de añadir y eliminar
@@ -517,9 +563,28 @@ public class VistaProducto extends javax.swing.JInternalFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
+      
+    
+        int pro_id  = Integer.parseInt(this.jtIdPro.getText());
+        int id_stock = Integer.parseInt(this.jtStockId.getText());
+
+
+        Stock s = new Stock(id_stock);
+
+        Producte p = new Producte(pro_id);
+
         
+        producto.eliminarProductoEstoc(p,s);
          this.jbEliminar.setEnabled(false);
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCategoriaActionPerformed
+
+    private void jtStockIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtStockIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtStockIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,8 +623,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel StokId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -577,6 +641,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton jbAñadir;
+    private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbCambiar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
@@ -587,6 +652,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtNombrePro;
     private javax.swing.JTextField jtPrecioPro;
     private javax.swing.JTextField jtStockActual;
+    private javax.swing.JTextField jtStockId;
     private javax.swing.JTextField jtStockIdPro;
     private javax.swing.JTextField jtStockMax;
     private javax.swing.JTextField jtStockMin;
