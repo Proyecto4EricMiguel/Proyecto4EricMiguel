@@ -33,7 +33,7 @@ public class Conexion {
         try {
             Class.forName("org.gjt.mm.mysql.Driver");//indicamos donde se encuentra el driver
             conexion = DriverManager.getConnection(url, user, pass);
-            JOptionPane.showMessageDialog(null, "Conexion Establecida");//muesta ventana con mensaje
+            //JOptionPane.showMessageDialog(null, "Conexion Establecida");//muesta ventana con mensaje
             System.out.println("Conexion Establecida");// muestra el mensaje por consola
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Conexion Erronea");

@@ -24,6 +24,24 @@ public class Producte {
         this.prod_id = prod_id;
     }
 
+    public Producte(int prod_id, int categoria_id) {
+        this.prod_id = prod_id;
+        this.categoria_id = categoria_id;
+    }
+
+    public Producte(int prod_id, String prod_nom, int categoria_id) {
+        this.prod_id = prod_id;
+        this.prod_nom = prod_nom;
+        this.categoria_id = categoria_id;
+    }
+    
+    public Producte(int prod_id, String prod_nom, double prod_preu, int categoria_id) {
+        this.prod_id = prod_id;
+        this.prod_nom = prod_nom;
+        this.prod_preu = prod_preu;
+        this.categoria_id = categoria_id;
+    }
+
     public Producte(int prod_id, String prod_nombre, double prod_preu, String prod_foto, int categoria_id) {
         this.prod_id = prod_id;
         this.prod_nom = prod_nom;
@@ -37,6 +55,8 @@ public class Producte {
         this.prod_preu = prod_preu;
         this.categoria_id = categoria_id;
     }
+
+   
 
     public int getProd_id() {
         return prod_id;
