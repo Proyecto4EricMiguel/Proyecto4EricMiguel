@@ -78,7 +78,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaProducto = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jtBuscar = new javax.swing.JTextField();
         jbBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
@@ -301,12 +301,12 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                     .addComponent(jtStockMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jtStockMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtStockId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(StokId)
@@ -364,12 +364,22 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(255, 204, 0));
         jLabel8.setText("Buscar");
 
-        jTextField3.setBackground(new java.awt.Color(255, 204, 0));
-        jTextField3.setForeground(new java.awt.Color(0, 51, 153));
+        jtBuscar.setBackground(new java.awt.Color(255, 204, 0));
+        jtBuscar.setForeground(new java.awt.Color(0, 51, 153));
+        jtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtBuscarActionPerformed(evt);
+            }
+        });
 
         jbBuscar.setBackground(new java.awt.Color(255, 204, 0));
         jbBuscar.setForeground(new java.awt.Color(0, 51, 153));
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/interfaz.png"))); // NOI18N
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -379,7 +389,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
                 .addGap(189, 189, 189)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbBuscar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -391,13 +401,15 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jbBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -410,7 +422,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 592, Short.MAX_VALUE))
+                .addGap(0, 568, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,27 +490,33 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         producto.añadirProductoEstoc(p, s);
         }
         if (this.jbGuardar.getText()=="Modificar"){
+         
             
+            
+     
+         
+         
         String prod_nom = this.jtNombrePro.getText();
-        double prod_precio = Double.parseDouble(this.jtPrecioPro.getText());
-        
-        int categoria_id = Integer.parseInt(this.jtCategoriaId.getText());
-
-            
-        int pro_id = Integer.parseInt(this.jtIdPro.getText());
+        double prod_preu = Double.parseDouble(this.jtPrecioPro.getText());
+         int categoria_id = Integer.parseInt(this.jtCategoriaId.getText());
+       int pro_id = Integer.parseInt(this.jtIdPro.getText());
         
       
         
-        Producte p = new Producte(prod_precio,categoria_id , pro_id,prod_nom);
+        //Producte p = new Producte(pro_id, prod_nom ,prod_preu ,categoria_id);
+        
+        Producte p = new Producte(prod_nom, prod_preu ,categoria_id ,pro_id);
         
         int stock = Integer.parseInt(this.jtStockActual.getText());
         int stockM = Integer.parseInt(this.jtStockMax.getText());
         int stockm = Integer.parseInt(this.jtStockMin.getText());
+        int stockid = Integer.parseInt(this.jtStockIdPro.getText());
+        producto.modifcarProducto(p);
         
-        Stock s = new Stock(stock, stockM, stockm);
-
+        Stock s = new Stock(stock, stockm, stockM, stockid);
        
-        producto.modifcarProductoEstoc(p, s);
+      
+        producto.modifcarEstoc(s);
         }
        
         this.jbAñadir.setEnabled(true);
@@ -532,7 +550,7 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         // indicamos si el boton guardar se llama modificar lo cambiamos a guardar
         
          //Modificamos el boton modificar  para que pase a guardar
-         if(jbGuardar.getText()=="Modificar"){
+         if(jbGuardar.getText()!="Guardar"){
         this.jbGuardar.setText("Guardar");
          }
          
@@ -625,6 +643,16 @@ public class VistaProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtCategoriaActionPerformed
 
+    private void jtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtBuscarActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        // TODO add your handling code here
+        String buscar=this.jtBuscar.getText();
+        this.jTablaProducto.setModel(producto.buscarProductoNombre(buscar));
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -676,12 +704,12 @@ public class VistaProducto extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaProducto;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton jbAñadir;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JComboBox<String> jcCategoriaCaja;
+    private javax.swing.JTextField jtBuscar;
     private javax.swing.JTextField jtCategoria;
     private javax.swing.JTextField jtCategoriaId;
     private javax.swing.JTextField jtIdPro;

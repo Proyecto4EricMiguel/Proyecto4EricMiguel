@@ -22,7 +22,7 @@ public class Stock {
         this.idstock = idstock;
     }
 
-    public Stock(int idstock, int stock_actual, int stock_max, int stock_min) {
+    public Stock(int stock_actual,int stock_min , int stock_max, int idstock) {
         this.idstock = idstock;
         this.stock_actual = stock_actual;
         this.stock_max = stock_max;
